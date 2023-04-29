@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link href="/static/text.css" th:href="@{/static/text.css}" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Update Session</title>
+</head>
+<body>
+<form method="post" th:action="@{/updateSession/{id}(id=${id})}">
+    <div class="mx-auto" style="width: 300px">
+        <br>
+        <p>Введите название фильма:</p>
+        <label>
+            <input type="text" class="form-control" name="filmName" th:value="${filmName}">
+        </label>
+        <br>
+        <br>
+    </div>
+
+    <div class="mx-auto" style="width: 300px">
+        <p>Введите дату и время:</p>
+        <label>
+            <input type="text" class="form-control" name="dateTime" th:value="${dateTime}">
+        </label>
+        <br>
+        <br>
+    </div>
+
+    <div class="mx-auto" style="width: 300px">
+        <button type="submit" class="btn btn-outline-primary">Изменить</button>
+        <br>
+    </div>
+</form>
+</body>
+</html>
