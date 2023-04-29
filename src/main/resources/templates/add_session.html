@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link href="/static/text.css" th:href="@{/static/text.css}" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Add Session</title>
+</head>
+<body>
+    <form method="post" action="/addSession">
+        <div class="mx-auto" style="width: 300px">
+            <br>
+            <p>Введите название фильма:</p>
+            <label>
+                <input type="text" class="form-control" placeholder="Film Name" name="filmName">
+            </label>
+            <br>
+            <br>
+        </div>
+
+        <div class="mx-auto" style="width: 300px">
+            <p>Введите дату и время:</p>
+            <label>
+                <input type="text" class="form-control" placeholder="Date and Time" name="dateTime">
+            </label>
+            <br>
+        </div>
+
+        <div class="mx-auto" style="width: 300px">
+            <br>
+            <button type="submit" class="btn btn-outline-primary">Добавить</button>
+            <br>
+        </div>
+    </form>
+</body>
+</html>
