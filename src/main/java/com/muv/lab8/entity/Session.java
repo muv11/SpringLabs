@@ -13,7 +13,6 @@ import java.util.Collection;
 @Table(name = "session", schema = "tp")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,4 +43,11 @@ public class Session {
         this.dateTime = dateTime;
     }
 
+    @Override
+    public String toString() {
+        return "Session{" +
+                "filmName='" + filmName + '\'' +
+                ", dateTime='" + dateTime + '\'' +
+                '}';
+    }
 }
