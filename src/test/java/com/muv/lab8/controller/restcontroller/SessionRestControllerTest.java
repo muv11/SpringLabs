@@ -1,6 +1,7 @@
 package com.muv.lab8.controller.restcontroller;
 
 import com.muv.lab8.entity.Session;
+import com.muv.lab8.repository.SessionRepositoryImpl;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
@@ -24,8 +25,10 @@ class SessionRestControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private JacksonTester<Session> jacksonTester;
-    private final Long id = 13L; //upd
-    private final Session session = new Session(id,"Film x1", "15.08 16:00");
+    private Long id;
+    private final Session session = new Session("Film x1", "15.08 16:00");
+    @Autowired
+    private SessionRepositoryImpl sessionRepository;
 
     @Order(1)
     @Test
@@ -33,6 +36,8 @@ class SessionRestControllerTest {
         MockHttpServletResponse response = mockMvc
                 .perform(MockMvcRequestBuilders.post("/api/sessions/Film x1/15.08 16:00").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
+        id = sessionRepository.findByFilmName("Film x1").getId();
+        session.setId(id);
         Assertions.assertEquals(response.getStatus(), HttpStatus.CREATED.value());
         Assertions.assertEquals(response.getContentAsString(),
                 jacksonTester.write(session).getJson());
