@@ -29,7 +29,7 @@ class TicketRestControllerTest {
     private JacksonTester<Ticket> jacksonTester;
     @Autowired
     private SessionRepositoryImpl sessionRepository;
-    private final Long id = 13L; //upd
+    private Long id;
     private Ticket ticket;
 
     private static String asJsonString(Ticket ticket) {
@@ -42,7 +42,7 @@ class TicketRestControllerTest {
 
     @BeforeAll
     public void init() {
-        ticket = new Ticket(id, "Customer 1", 20, 500, sessionRepository.findByFilmName("Film #1"));
+        ticket = new Ticket("Customer 1", 20, 500, sessionRepository.findByFilmName("Film #1"));
     }
 
     @Order(1)
